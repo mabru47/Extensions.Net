@@ -17,6 +17,11 @@ namespace CrewFourtySeven.Extensions.DependencyInjection
             return AddWithDependenciesInternal(services, serviceType, true);
         }
 
+        public static IServiceCollection AddWithDependencies<TService, TImplementation>(this IServiceCollection services)
+        {
+            return services.AddWithDependenciesInternal(typeof(TService), typeof(TImplementation), ServiceLifetime.Transient);
+        }
+
         public static IServiceCollection AddWithDependencies<TService, TImplementation>(this IServiceCollection services, ServiceLifetime serviceLifetime)
         {
             return services.AddWithDependenciesInternal(typeof(TService), typeof(TImplementation), serviceLifetime);
