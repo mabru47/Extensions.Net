@@ -53,7 +53,7 @@ namespace CrewFourtySeven.Extensions.DependencyInjection
                 {
                     return services;
                 }
-                throw new Exception("");
+                throw new Exception(serviceType.FullName + " has no " + nameof(ImplementationAttribute) + " but is required");
             }
 
             foreach (var implementationType in implementationInfos)

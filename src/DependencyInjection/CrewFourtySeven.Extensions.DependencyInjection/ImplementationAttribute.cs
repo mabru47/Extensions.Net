@@ -3,6 +3,7 @@ using System;
 
 namespace CrewFourtySeven.Extensions.DependencyInjection
 {
+    [AttributeUsage(AttributeTargets.Interface, AllowMultiple = true)]
     public class ImplementationAttribute : Attribute
     {
         public Type ImplementationType { get; }
