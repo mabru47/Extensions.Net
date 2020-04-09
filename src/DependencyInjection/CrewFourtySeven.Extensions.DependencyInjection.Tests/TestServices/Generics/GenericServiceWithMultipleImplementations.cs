@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CrewFourtySeven.Extensions.DependencyInjection.Tests.TestServices.Generics
 {
     [Implementation(typeof(GenericServiceWithmultipleImplementationsString))]
     [Implementation(typeof(GenericServiceWithMultipleImplementationsInt))]
-    interface IGenericServiceWithMultipleImplementations<T>
+    internal interface IGenericServiceWithMultipleImplementations<T>
     {
         void Test(T param);
     }
 
-    class GenericServiceWithmultipleImplementationsString : IGenericServiceWithMultipleImplementations<string>
+    internal class GenericServiceWithmultipleImplementationsString : IGenericServiceWithMultipleImplementations<string>
     {
         public void Test(string param)
         {
@@ -19,7 +17,7 @@ namespace CrewFourtySeven.Extensions.DependencyInjection.Tests.TestServices.Gene
         }
     }
 
-    class GenericServiceWithMultipleImplementationsInt : IGenericServiceWithMultipleImplementations<int>
+    internal class GenericServiceWithMultipleImplementationsInt : IGenericServiceWithMultipleImplementations<int>
     {
         public void Test(int param)
         {
