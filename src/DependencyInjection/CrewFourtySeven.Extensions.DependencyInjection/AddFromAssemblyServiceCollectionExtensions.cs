@@ -21,7 +21,7 @@ namespace CrewFourtySeven.Extensions.DependencyInjection
 
             foreach (var serviceDescriptor in serviceDescriptors)
             {
-                services.Add(serviceDescriptor);
+                services.AddWithDependencies(serviceDescriptor.ServiceType, serviceDescriptor.ImplementationType, serviceDescriptor.Lifetime);
             }
 
             return services;

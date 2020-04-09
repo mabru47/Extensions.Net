@@ -33,14 +33,13 @@ namespace CrewFourtySeven.Extensions.DependencyInjection.Tests
         [Test]
         public void AddFromAssemblyTests()
         {
-            var serviceProvider = new ServiceCollection()
-                .AddFromAssembly(Assembly.GetExecutingAssembly())
-                .BuildServiceProvider();
+            var serviceCollection = new ServiceCollection()
+                .AddFromAssembly(Assembly.GetExecutingAssembly());
 
-            Assert.AreEqual(1, serviceProvider.GetServices<IServiceC>().Count());
-            Assert.AreEqual(2, serviceProvider.GetServices<IServiceD>().Count());
-            Assert.AreEqual(0, serviceProvider.GetServices<IServiceA>().Count());
-            Assert.AreEqual(0, serviceProvider.GetServices<IServiceB>().Count());
+            Assert.AreEqual(1, serviceCollection.Count(x => x.ServiceType == typeof(IServiceC)));
+            Assert.AreEqual(2, serviceCollection.Count(x => x.ServiceType == typeof(IServiceD)));
+            Assert.AreEqual(0, serviceCollection.Count(x => x.ServiceType == typeof(IServiceA)));
+            Assert.AreEqual(1, serviceCollection.Count(x => x.ServiceType == typeof(IServiceB)));
         }
 
         [Test]

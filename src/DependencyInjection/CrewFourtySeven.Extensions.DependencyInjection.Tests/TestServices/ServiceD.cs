@@ -12,5 +12,9 @@
     [Service(typeof(IServiceD))]
     internal class ServiceD2 : IServiceD
     {
+        public ServiceD2(IServiceB b)
+        {
+
+        }
     }
 }
